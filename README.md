@@ -1,7 +1,6 @@
-# Conversor de monedas
+![1](https://app.aluracursos.com/assets/images/logos/logo-aluraespanhol.svg)
+![2](/image/qrpage.svg)
+# convertidorChallengeOne
+Proyecto Alura Latam - Oracle Next Education - Sprint 01: Encriptador de texto con Javascript
 
-Proyecto convertidor de monedas para Alura
-
-## About
-
-#challengeoneconversorlatam4
+En este reositorio se pone en practica lo enseñado en el modulo Fase 3 - Especialización Back-End.
