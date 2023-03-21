@@ -6,21 +6,17 @@ public class App {
 	public static void main(String[] args) throws Exception {
 		Object[] options = { "Convertir Moneda", "Convertir Temperatura", "Convertir Distancias", "Deseo Salir" };
 		String choice = (String) JOptionPane.showInputDialog(null, "¿Qué desea hacer?", "Conversor",
-				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-
-		String[] splitChoice = choice.split(" ");
-		Integer selectedOption = 0;
+				JOptionPane.QUESTION_MESSAGE, null, options,  options[0]);
+		
+		String[] splitChoice=choice.split(" ");
+		Integer selectedOption=0;
 		Boolean continueProgram = Boolean.TRUE;
-
-		if (splitChoice[1].equals("Moneda"))
-			selectedOption = 0;
-		if (splitChoice[1].equals("Temperatura"))
-			selectedOption = 1;
-		if (splitChoice[1].equals("Distancias"))
-			selectedOption = 2;
-		if (splitChoice[1].equals("Salir"))
-			selectedOption = 3;
-
+		
+		if 	(splitChoice[1].equals("Moneda")) selectedOption=0;
+		if 	(splitChoice[1].equals("Temperatura")) selectedOption=1;
+		if 	(splitChoice[1].equals("Distancias")) selectedOption=2;
+		if 	(splitChoice[1].equals("Salir")) selectedOption=3;
+			
 		switch (selectedOption) {
 
 		case 0: {
@@ -33,7 +29,7 @@ public class App {
 				String[] divisas = { "ARG a Dolar", "ARG a Euro", "ARG a Real", "ARG a Uruguayo", "ARG a Chileno",
 						"Dolar a ARG", "Euro a ARG", "Real a ARG", "Uruguayo a ARG", "Chileno a ARG" };
 				String cambio = (String) JOptionPane.showInputDialog(null, "Elija una opción: ", "Conversor de Moneda",
-						JOptionPane.QUESTION_MESSAGE, null, divisas, divisas[0]);
+						JOptionPane.QUESTION_MESSAGE, null, divisas,  divisas[0]);
 
 				if (cambio == null || cambio == "") {
 					continueProgram = Boolean.FALSE;
@@ -51,52 +47,44 @@ public class App {
 				}
 
 				double resultado = 0;
-
-				String[] moneis = cambio.split(" a ");
-				String moneyFrom = moneis[0].trim();
-				String moneyTo = moneis[1].trim();
-
-				double valueDolar = (394);
-				double valueEuro = (290);
-				double valueReal = (4);
-				double valueUru = (5);
-				double valueChi = (25);
+				
+				String[] moneis=cambio.split(" a ");
+				String moneyFrom=moneis[0].trim();
+				String moneyTo=moneis[1].trim();
+				
+				double valueDolar=(394);
+				double valueEuro=(290);
+				double valueReal=(4);
+				double valueUru=(5);
+				double valueChi=(25);
 				double value = 0;
 
-				if (moneyFrom.equals("ARG")) {
-					if (moneyTo.equals("Dolar"))
-						value = valueDolar;
-					if (moneyTo.equals("Euro"))
-						value = valueEuro;
-					if (moneyTo.equals("Real"))
-						value = valueReal;
-					if (moneyTo.equals("Uruguayo"))
-						value = valueUru;
-					if (moneyTo.equals("Chileno"))
-						value = valueChi;
-					resultado = dinero / value;
+				if(moneyFrom.equals("ARG")) {
+					if(moneyTo.equals("Dolar")) 	value=valueDolar;
+					if(moneyTo.equals("Euro")) 		value=valueEuro;
+					if(moneyTo.equals("Real")) 		value=valueReal;
+					if(moneyTo.equals("Uruguayo")) 	value=valueUru;
+					if(moneyTo.equals("Chileno")) 	value=valueChi;
+					resultado = dinero/value;
 				} else {
-					if (moneyFrom.equals("Dolar"))
-						value = valueDolar;
-					if (moneyFrom.equals("Euro"))
-						value = valueEuro;
-					if (moneyFrom.equals("Real"))
-						value = valueReal;
-					if (moneyFrom.equals("Uruguayo"))
-						value = valueUru;
-					if (moneyFrom.equals("Chileno"))
-						value = valueChi;
-					resultado = dinero * value;
+					if(moneyFrom.equals("Dolar")) 		value=valueDolar;
+					if(moneyFrom.equals("Euro")) 		value=valueEuro;
+					if(moneyFrom.equals("Real")) 		value=valueReal;
+					if(moneyFrom.equals("Uruguayo")) 	value=valueUru;
+					if(moneyFrom.equals("Chileno")) 	value=valueChi;
+					resultado = dinero*value;
 				}
-
+				
 				JOptionPane.showMessageDialog(null,
 						dinero + " " + moneyFrom + " son: " + decimalFormat.format(resultado) + " " + moneyTo);
+				
 
 				Integer confirma = JOptionPane.showConfirmDialog(null, "¿Desea continuar haciendo cambios?", "",
 						JOptionPane.YES_NO_OPTION);
 
 				if (confirma == JOptionPane.NO_OPTION) {
 					continueProgram = Boolean.FALSE;
+					JOptionPane.showMessageDialog(null, "Programa Finalizado");
 					System.exit(0);
 				}
 			}
@@ -125,11 +113,11 @@ public class App {
 				double resultado = 0;
 
 				if (cambio == 0) {
-					resultado = (valor * 9 / 5) + 32;
+					resultado = (valor*9/5)+32;
 					JOptionPane.showMessageDialog(null,
 							valor + " Grados Celsius son: " + resultado + " Grados Fahrenheit");
 				} else if (cambio == 1) {
-					resultado = (valor - 32) * 5 / 9;
+					resultado = (valor-32)*5/9;
 					JOptionPane.showMessageDialog(null,
 							valor + " Grados Fahrenheit son: " + resultado + " Grados Celsius");
 				}
@@ -139,6 +127,7 @@ public class App {
 
 				if (continuar == JOptionPane.NO_OPTION) {
 					continueProgram = Boolean.FALSE;
+					JOptionPane.showMessageDialog(null, "Programa Finalizado");
 					System.exit(0);
 				}
 			}
@@ -167,7 +156,7 @@ public class App {
 				double resultado = 0;
 
 				if (cambio == 0) {
-					resultado = valor / 100;
+					resultado = valor/ 100;
 					JOptionPane.showMessageDialog(null, valor + " Centimetros son: " + resultado + " Metros");
 				} else if (cambio == 1) {
 					resultado = valor / 1000;
@@ -197,6 +186,7 @@ public class App {
 
 				if (continuar == JOptionPane.NO_OPTION) {
 					continueProgram = Boolean.FALSE;
+					JOptionPane.showMessageDialog(null, "Programa Finalizado");
 					System.exit(0);
 				}
 
@@ -206,6 +196,7 @@ public class App {
 
 		case 3: {
 
+			JOptionPane.showMessageDialog(null, "Programa Cerrado");
 			System.exit(0);
 			break;
 
