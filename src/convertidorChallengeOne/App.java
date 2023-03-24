@@ -5,7 +5,6 @@ import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 public class App {
-	@SuppressWarnings("unused")
 	public static void main(String[] args) throws Exception {
 		Boolean continueProgram = Boolean.TRUE;
 
@@ -56,10 +55,10 @@ public class App {
 
 					String[] divisas = { "ARG a Dolar", "ARG a Euro", "ARG a Real", "ARG a Uruguayo", "ARG a Chileno",
 							"Dolar a ARG", "Euro a ARG", "Real a ARG", "Uruguayo a ARG", "Chileno a ARG" };
-					String cambio = (String) JOptionPane.showInputDialog(null, "Elija una opción: ",
+					String optionMoney = (String) JOptionPane.showInputDialog(null, "Elija una opción: ",
 							"Conversor de Moneda", JOptionPane.QUESTION_MESSAGE, null, divisas, divisas[0]);
 
-					if (cambio == null || cambio == "") {
+					if (optionMoney == null || optionMoney == "") {
 						continueMoney = Boolean.FALSE;
 					} else {
 						String input = JOptionPane.showInputDialog(null, "¿Cuánto va a convertir?:");
@@ -70,7 +69,7 @@ public class App {
 								dinero = Double.parseDouble(input);
 								double resultado = 0;
 
-								String[] moneis = cambio.split(" a ");
+								String[] moneis = optionMoney.split(" a ");
 								String moneyFrom = moneis[0].trim();
 								String moneyTo = moneis[1].trim();
 
@@ -110,12 +109,11 @@ public class App {
 								JOptionPane.showMessageDialog(null, dinero + " " + moneyFrom + " son: "
 										+ decimalFormat.format(resultado) + " " + moneyTo);
 
-								Integer confirma = JOptionPane.showConfirmDialog(null, "¿Desea seguir en monedas?", "",
+								Integer goAhead = JOptionPane.showConfirmDialog(null, "¿Desea seguir en monedas?", "",
 										JOptionPane.YES_NO_OPTION);
 
-								if (confirma == JOptionPane.NO_OPTION) {
+								if (goAhead == JOptionPane.NO_OPTION) {
 									continueMoney = Boolean.FALSE;
-
 								}
 							}
 						} catch (NumberFormatException e) {
@@ -132,10 +130,10 @@ public class App {
 				while (continueTemp) {
 
 					String[] grados = { "Celsius a Fahrenheit", "Fahrenheit a Celsius" };
-					Integer cambio = JOptionPane.showOptionDialog(null, "Elija una opción: ",
+					Integer optionTemp = JOptionPane.showOptionDialog(null, "Elija una opción: ",
 							"Conversor de Temperatura", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null,
 							grados, grados[0]);
-					if (cambio == null || cambio == -1) {
+					if (optionTemp == null || optionTemp == -1) {
 						continueTemp = Boolean.FALSE;
 					} else {
 						String valorNominal = JOptionPane.showInputDialog(null, "Ingrese valor a convertir");
@@ -145,20 +143,20 @@ public class App {
 								valor = (Double.parseDouble(valorNominal));
 								double resultado = 0;
 
-								if (cambio == 0) {
+								if (optionTemp == 0) {
 									resultado = (valor * 9 / 5) + 32;
 									JOptionPane.showMessageDialog(null,
 											valor + " Grados Celsius son: " + resultado + " Grados Fahrenheit");
-								} else if (cambio == 1) {
+								} else if (optionTemp == 1) {
 									resultado = (valor - 32) * 5 / 9;
 									JOptionPane.showMessageDialog(null,
 											valor + " Grados Fahrenheit son: " + resultado + " Grados Celsius");
 								}
 
-								Integer continuar = JOptionPane.showConfirmDialog(null, "¿Desea seguir en temperatura?",
+								Integer goAhead = JOptionPane.showConfirmDialog(null, "¿Desea seguir en temperatura?",
 										"", JOptionPane.YES_NO_OPTION);
 
-								if (continuar == JOptionPane.NO_OPTION) {
+								if (goAhead == JOptionPane.NO_OPTION) {
 									continueTemp = Boolean.FALSE;
 								}
 							}
@@ -175,61 +173,61 @@ public class App {
 
 				while (continueDistance) {
 
-					String[] distancia = { "Centimetros a Metros", "Metros a Kilometros", "Kilometros a Millas",
+					String[] dintances = { "Centimetros a Metros", "Metros a Kilometros", "Kilometros a Millas",
 							"Kilometros a Años Luz", "Metros a Centimetros", "Kilometros a Metros",
 							"Millas a Kilometros", "Años Luz a Kilometros" };
-					Integer cambio = JOptionPane.showOptionDialog(null, "Elija una opción: ",
+					Integer optionDistance = JOptionPane.showOptionDialog(null, "Elija una opción: ",
 							"Conversor de Temperatura", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-							distancia, distancia[0]);
-					if (cambio == null || cambio == -1) {
+							dintances, dintances[0]);
+					if (optionDistance == null || optionDistance == -1) {
 						continueDistance = Boolean.FALSE;
 					} else {
-						String valorNominal = JOptionPane.showInputDialog(null, "Ingrese valor a convertir");
-						double valor = 0;
+						String valueInput = JOptionPane.showInputDialog(null, "Ingrese valor a convertir");
+						double value = 0;
 						try {
-							if(valorNominal!=null) {
-								valor = (Double.parseDouble(valorNominal));
-	
+							if (valueInput != null) {
+								value = (Double.parseDouble(valueInput));
+
 								double resultado = 0;
-	
-								if (cambio == 0) {
-									resultado = valor / 100;
+
+								if (optionDistance == 0) {
+									resultado = value / 100;
 									JOptionPane.showMessageDialog(null,
-											valor + " Centimetros son: " + resultado + " Metros");
-								} else if (cambio == 1) {
-									resultado = valor / 1000;
+											value + " Centimetros son: " + resultado + " Metros");
+								} else if (optionDistance == 1) {
+									resultado = value / 1000;
 									JOptionPane.showMessageDialog(null,
-											valor + " Metros son: " + resultado + " Kilometros");
-								} else if (cambio == 2) {
-									resultado = valor * 0.621371;
+											value + " Metros son: " + resultado + " Kilometros");
+								} else if (optionDistance == 2) {
+									resultado = value * 0.621371;
 									JOptionPane.showMessageDialog(null,
-											valor + " Kilometros son: " + resultado + " Millas");
-								} else if (cambio == 3) {
-									resultado = valor * 0.00000000000010570;
+											value + " Kilometros son: " + resultado + " Millas");
+								} else if (optionDistance == 3) {
+									resultado = value * 0.00000000000010570;
 									JOptionPane.showMessageDialog(null,
-											valor + " Kilometros son: " + resultado + " Años Luz");
-								} else if (cambio == 4) {
-									resultado = valor * 100;
+											value + " Kilometros son: " + resultado + " Años Luz");
+								} else if (optionDistance == 4) {
+									resultado = value * 100;
 									JOptionPane.showMessageDialog(null,
-											valor + " Metros son: " + resultado + " Centimetros");
-								} else if (cambio == 5) {
-									resultado = valor * 1000;
+											value + " Metros son: " + resultado + " Centimetros");
+								} else if (optionDistance == 5) {
+									resultado = value * 1000;
 									JOptionPane.showMessageDialog(null,
-											valor + " Kilometros son: " + resultado + " Metros");
-								} else if (cambio == 6) {
-									resultado = valor * 1.609344;
+											value + " Kilometros son: " + resultado + " Metros");
+								} else if (optionDistance == 6) {
+									resultado = value * 1.609344;
 									JOptionPane.showMessageDialog(null,
-											valor + " Millas son: " + resultado + " kilometros");
-								} else if (cambio == 7) {
-									resultado = valor / 0.00000000000010570;
+											value + " Millas son: " + resultado + " kilometros");
+								} else if (optionDistance == 7) {
+									resultado = value / 0.00000000000010570;
 									JOptionPane.showMessageDialog(null,
-											valor + " Años Luz son: " + resultado + " Kilometros");
+											value + " Años Luz son: " + resultado + " Kilometros");
 								}
-	
-								Integer continuar = JOptionPane.showConfirmDialog(null, "¿Desea seguir en distancia?", "",
+
+								Integer goAhead = JOptionPane.showConfirmDialog(null, "¿Desea seguir en distancia?", "",
 										JOptionPane.YES_NO_OPTION);
-	
-								if (continuar == JOptionPane.NO_OPTION) {
+
+								if (goAhead == JOptionPane.NO_OPTION) {
 									continueDistance = Boolean.FALSE;
 								}
 							}
