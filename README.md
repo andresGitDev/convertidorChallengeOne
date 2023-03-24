@@ -10,6 +10,6 @@ En este reositorio se pone en practica lo enseñado en el modulo Fase 3 - Especi
 
 <div align="left">
   <a href="https://github.com/andresGitDev/convertidorChallengeOne">
-    <img src="/images/app.gif"  height="200" width="1042" alt="linkedin logo"/>
+    <img src="/images/app.gif"  height="200" width="1042" alt="url repository"/>
   </a>
 </div>
